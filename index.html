@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            console.log("Type game() to play.");
+            function computerPlay() {
+                if(Math.random() < 0.33) {
+                    return "rock";
+                } else if (Math.random() > 0.33 & Math.random() < 0.66) {
+                    return "paper";
+                } else return "scissors";
+            }
+
+            function playerPlay() {
+                while (true) {
+                    x = prompt("Choose rock paper or scissors", "");
+                    x = x.toLowerCase();
+                        if (x === 'rock' || x === 'paper' || x === 'scissors') {
+                            break;
+                        }
+                }
+                return x;
+            }
+
+            function game() {
+                let pw = 0;
+                let cw = 0;
+                let games = 0;
+
+                while (games < 5) {
+                    let a = playerPlay();
+                    let b = computerPlay();
+                    console.log("You chose " + a + " the computer chose " + b);
+
+                    if (a == "rock" && b == "scissors") {
+                        console.log("You win!");
+                        games++;
+                        pw++;
+                    } else if (a == "scissors" && b == "paper") {
+                        console.log("You win!");
+                        games++;
+                        pw++;
+                    } else if (a== "paper" && b == "rock") {
+                        console.log("You win!");
+                        games++;
+                        pw++;
+                    } else if (a == b) {
+                        console.log("Tie!");
+                        games++;
+                    } else {
+                        console.log("You lose!");
+                        games++;
+                        cw++;
+                    }
+                }
+                console.log("You won " + pw + " games, the computer won " + cw + " games.");
+                if(pw > cw) {
+                    console.log("The player wins!");
+                } else if(cw > pw) {
+                    console.log("The computer wins!");
+                } else console.log("It's a tie!");
+            }
+            
+        </script>
+    </head>
+    <body>
+        <h1>Rock paper scissors for TheOdinProject made by Dom9999. To play go to console and type game()<h1>
+    </body>
+</html>
